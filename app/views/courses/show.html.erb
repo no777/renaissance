@@ -1,0 +1,70 @@
+<p id="notice"><%= notice %></p>
+<% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
+  <%= link_to tag.name, { :action => :tag, :id => tag.name }, :class => css_class %>
+<% end %>
+
+<p>
+
+  <strong>Name:</strong>
+    <%= link_to @course.name, "http://192.168.1.115:3000/courses/#{@course.canvas_id}" %> 
+
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @course.description %>
+</p>
+
+<p>
+  <strong>Cover image url:</strong>
+  <%= link_to image_tag(@course.cover_image_url), "http://192.168.1.115:3000/courses/#{@course.canvas_id}" %> 
+</p>
+
+<p>
+  <strong>Start at:</strong>
+  <%= @course.start_at %>
+</p>
+
+<p>
+  <strong>End at:</strong>
+  <%= @course.end_at %>
+</p>
+
+<p>
+  <strong>Score:</strong>
+  <%= @course.score %>
+</p>
+
+<p>
+  <strong>Difficulty:</strong>
+  <%= @course.difficulty %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @course.price %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @course.duration %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @course.type %>
+</p>
+
+<p>
+  <strong>Peoples:</strong>
+  <%= @course.peoples %>
+</p>
+
+<p>
+  <strong>Canvas:</strong>
+  <%= @course.canvas_id %>
+</p>
+<%= link_to 'join', "/courses/enroll/#{@course.id}" %>
+|
+<%= link_to 'Edit', edit_course_path(@course) %> |
+<%= link_to 'Back', courses_path %>

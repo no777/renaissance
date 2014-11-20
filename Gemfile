@@ -14,6 +14,13 @@ gem 'devise'
 gem 'high_voltage'
 gem 'pg'
 gem 'simple_form'
+
+gem 'devise_cas_authenticatable'
+gem 'omniauth-cas'
+gem 'canvas_client', github: 'dfurber/canvas_client'
+
+gem 'acts-as-taggable-on', '~> 3.4'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]

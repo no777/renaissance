@@ -1,0 +1,30 @@
+<h1>Listing courses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Start at</th>
+      <th>End at</th>
+      <th>Canvas ID</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @courses.each do |course| %>
+      <tr>
+
+        <td><%= course["name"] %></td>
+        <td><%= course["start_at"] %></td>
+        <td><%= course["end_at"] %></td>
+        <td><%= course["id"] %></td>
+        <td><%= link_to 'import', "/courses/import/#{course["id"]}" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Course', new_course_path %>
