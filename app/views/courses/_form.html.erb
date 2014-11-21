@@ -16,9 +16,61 @@
     <%= f.input :canvas_id %>
     <%= f.label :tag_list %>
     <%= f.text_field :tag_list %>
+
   </div>
 
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
+
+  <% @course.videos.each do |video| %>
+    <%= link_to video.name, video_path(video) %>
+    </li>
+  <% end %>
+
+
+
 <% end %>
+
+<div id="wrapper">
+
+    <div class="video-holder">
+        <video id="video" class="video-js vjs-default-skin"
+               controls preload="auto" width="800" height=600
+               data-setup=''
+               poster="">
+        </video>
+        <div class="playlist-components">
+            <div class="playlist">
+                <ul></ul>
+            </div>
+            <div class="button-holder">
+                <img id="prev" alt="Previous video" src="img/Previous.png">
+                <img id="next" alt="Next video" src="img/Next.png">
+            </div>
+        </div>
+    </div>
+    <div class="panels centered">
+        <pre></pre>
+    </div>
+     <script>
+  var videos = [
+      <% @course.videos.each do |video| %>
+      {
+      src : [
+        '<%= video.url %>',
+      ],
+      poster : 'http://flowplayer.org/media/img/demos/minimalist.jpg',
+      title : '<%= video.name %>'
+    },
+      <% end %>
+
+  ];
+  </script>
+</div>
+   
+  </body>
+
+  <script src="https://rawgithub.com/Belelros/videojs-playLists/master/lib/videojs-playlists.js" data-cover></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="/videojs-playLists/example/main.js"></script>

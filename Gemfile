@@ -21,6 +21,7 @@ gem 'canvas_client', github: 'dfurber/canvas_client'
 
 gem 'acts-as-taggable-on', '~> 3.4'
 
+gem 'videojs_rails'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]

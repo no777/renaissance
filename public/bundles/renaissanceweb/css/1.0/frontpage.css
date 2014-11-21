@@ -1,0 +1,259 @@
+html{
+	height: 100%;
+}
+
+body{
+	height: 100%;
+	font-family:arial, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', '宋体', \5b8b\4f53, Tahoma, Arial, Helvetica, STHeiti;
+}
+
+#toLogin:hover{
+	cursor: pointer;
+}
+
+.regLog{
+	display: none;
+	width: 100%;
+	font-size:2rem;
+	color:#ffffff;
+}
+
+.regLog input{
+	width: 80%;
+	color:black;
+	font-size: 2.5rem;
+	border-radius: 5px;
+	border:1px solid #ccc;
+	margin-top: 25px;
+	padding:2px;
+}
+
+#doAction{
+	width:80%;
+	margin-top: 25px;
+	background-color:#de2e39;
+	border-radius:5px;
+	border-bottom: 5px solid #B81A23;
+	font-size: 2rem;
+	height:40px;
+	transition: background 1s;
+	-moz-transition: background 1s;	/* Firefox 4 */
+	-webkit-transition: background 1s;	/* Safari 和 Chrome */
+	-o-transition: background 1s;	/* Opera */
+
+}
+
+#doAction:hover{
+	background-color: #F14F5A;
+}
+
+.fullHeight{
+	height:100%;
+}
+
+.navbar.navbar-default.custom{
+	margin-bottom: 0px;
+	background-color: #ffae9a;
+	border: none;
+	border-radius: 0px;
+
+}
+
+.bigRect{
+	padding-left:0px;
+	padding-right:0px;
+	position: relative;
+	display:block;
+}
+
+.bigRect  img{
+	max-height:100%;
+	max-width:100%;
+}
+
+#introRect{
+	padding-top: 3%;
+}
+
+#introVideo a{
+	color:#ffffff;
+	text-decoration:none;
+}
+
+#guideRect{
+	height:200px;
+}
+#guideRect p{
+	color:#ffffff;
+	font-size:4rem;
+	margin:20px;
+}
+
+
+#courseTitleRect{
+	background-color: #de2e39;
+	padding: 10%;
+	background-repeat: no-repeat;
+	background-size: 0;
+	background-position: 7.1% 92.5%;
+	transition: background 0.5s;
+	-moz-transition: background 0.5s;	/* Firefox 4 */
+	-webkit-transition: background 0.5s;	/* Safari 和 Chrome */
+	-o-transition: background 0.5s;	/* Opera */
+}
+
+
+#courseTitleRect .row{
+	text-align: center;
+}
+
+#courseTitleRect img{
+	width:24%;
+	opacity: 0;
+}
+
+#courseTitleRect p{
+	color:#ffffff;
+	text-align:center;
+}
+#courseTitleRect .title{
+	font-size:2.5rem;
+	font-weight:700;
+}
+#courseTitleRect .teacher{
+	font-size:1.3rem;
+	text-align:right;
+}
+#courseTitleRect .content{
+	font-size:1.5rem;
+}
+#courseTitleRect span{
+	margin:5px;
+}
+#courseTitleRect .name{
+	font-size:1.5rem;
+	font-weight:700;
+}
+
+#advRect .row{
+	margin-top:5%;
+	margin-bottom:5%;
+}
+#advRect p{
+	color:#ffffff;
+	margin:2% 0 2% 0;
+}
+
+#advRect .title{
+	font-size:200%;
+	font-weight:bold;
+}
+#advRect .content{
+	font-size:130%;
+}
+
+#regRect{
+	background-color:#979a29;
+}
+#regRect p{
+	color:#ffffff;
+	margin:10% 0 10% 0;
+}
+#regRect .content{
+	font-size:5rem;
+	font-weight:bold;
+}
+
+#aboutRect{
+	background-color:#1e252d;
+	padding:2% 0 2% 0;
+}
+#aboutRect p{
+	color:#c9c2b2;
+	margin:2% 0 2% 0;
+	text-align:center;
+}
+
+#aboutRect .title{
+	font-size:2rem;
+	font-weight:bold;
+	margin:10% 0 10% 0;
+}
+#aboutRect .content{
+	font-size:1.5rem;
+	margin:2% 0 2% 0;
+}
+
+#footer{
+	padding:2% 0 2% 0;
+}
+
+
+#footer p{
+	color:#555f65;
+	font-size:1rem;
+	text-align:center;
+	font-weight:bold;
+}
+
+.logReg{
+	display: none
+}
+
+.panel.panel-default.custom{
+	border-radius: 0px;
+}
+
+.panel.panel-default.custom .panel-heading{
+	font-size: 2rem;
+	background-color: #BC544B;
+	color:white;
+}
+
+.panel.panel-default.custom .panel-body .col-md-10.col-md-offset-1{
+	padding:10px;
+}
+
+.panel.panel-default.custom form input{
+	width: 100%;
+	font-size: 2.5rem;
+	border-radius: 0;
+	border:1px solid #ccc;
+
+}
+
+.hide{
+	display:none;
+}
+<<<<<<< HEAD
+
+@media  screen and (max-width: 1500px) {
+=======
+@media  screen and (max-width: 800px) {
+	/*
+>>>>>>> 1f7705a61fa96bf1923ded78d93e662544279316
+	html{
+		
+		font-size: 35.5%;
+	}
+	body{
+		font-size: 14px;
+		font-size: 1.4em;
+		height:100%;
+	}
+	nav{
+		display: none;
+	}
+	#topicRect {
+		min-height: 0;
+	}
+	#topicRect img{
+		width:65%;
+	}
+	#regRect{
+	}
+	#regRect p{
+		font-size: 18rem;
+	}
+	*/
+}

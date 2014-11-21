@@ -1,70 +1,239 @@
+
+<link href="/bundles/renaissanceweb/css/star-rating.min.css" rel="stylesheet" type="text/css"></link>
+<link href="/bundles/renaissanceweb/css/1.0/common.css" rel="stylesheet" type="text/css"></link>
+
+
 <p id="notice"><%= notice %></p>
 <% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
   <%= link_to tag.name, { :action => :tag, :id => tag.name }, :class => css_class %>
 <% end %>
 
-<p>
 
-  <strong>Name:</strong>
-    <%= link_to @course.name, "http://192.168.1.115:3000/courses/#{@course.canvas_id}" %> 
 
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @course.description %>
-</p>
-
-<p>
-  <strong>Cover image url:</strong>
-  <%= link_to image_tag(@course.cover_image_url), "http://192.168.1.115:3000/courses/#{@course.canvas_id}" %> 
-</p>
-
-<p>
-  <strong>Start at:</strong>
-  <%= @course.start_at %>
-</p>
-
-<p>
-  <strong>End at:</strong>
-  <%= @course.end_at %>
-</p>
-
-<p>
-  <strong>Score:</strong>
-  <%= @course.score %>
-</p>
-
-<p>
-  <strong>Difficulty:</strong>
-  <%= @course.difficulty %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @course.price %>
-</p>
-
-<p>
-  <strong>Duration:</strong>
-  <%= @course.duration %>
-</p>
-
-<p>
-  <strong>Type:</strong>
-  <%= @course.type %>
-</p>
-
-<p>
-  <strong>Peoples:</strong>
-  <%= @course.peoples %>
-</p>
-
-<p>
-  <strong>Canvas:</strong>
-  <%= @course.canvas_id %>
-</p>
-<%= link_to 'join', "/courses/enroll/#{@course.id}" %>
 |
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>
+
+
+
+<style type="text/css">
+.timeLine > .item:hover{
+  border-bottom:3px dashed #B01E00;
+}
+
+</style>
+<div class="container-fluid">
+<!-- 课程介绍 -->
+<div class="col-md-10 col-md-offset-1 courseProfile whiteRec">
+<div class="col-md-12" >
+<ol class="breadcrumb courseBC">
+<li><a href="#">课程分类</a></li>
+<li><a href="#">Web前端开发技术</a></li>
+</ol>
+</div>
+<div class="col-md-12 profileMain" style="">
+<div class="col-md-4 profileBase">
+<div class="col-md-12" >
+<div class="
+cPrice dashedRec">
+<p class="title">
+<i class="fa fa-money"></i> 售价
+</p>
+<p class="content">
+<%= @course.price %>
+</p>
+</div>
+<div class=" cStars dashedRec">
+<p class="title">
+<i class="fa fa-star"></i> 评价
+</p>
+<p class="content">
+<%= @course.score %>星
+</p>
+</div>
+<div class="cMembers dashedRec">
+<p class="title">
+<i class="fa fa-users"></i> 报名
+</p>
+<p class="content">
+<%= @course.peoples %>人
+</p>
+</div>
+</div>
+<div class="col-md-12">
+<% if @joined===false %>
+
+  <%= link_to '加入', course_enroll_path(@course), :class => "button button-large button-flat-flame" %>
+<% else %>
+  <%= link_to '开始学习', "http://192.168.1.115:3000/courses/#{@course.canvas_id}" , :class => "button button-large button-flat-flame" %>
+<% end %>
+</div>
+</div>
+<% if @course.videos.length >0 %>
+<div class="col-md-8 profileImg">
+<%= videojs_rails sources: { mp4: "#{@course.videos.first.url}", webm: "#{@course.videos.first.url}"}, width:"800" do %>
+    Please enable <b>JavaScript</b> to see this content.
+<%- end %>
+</div>
+<% else %>
+<div class="col-md-8 profileImg">
+<img src="<%= @course.cover_image_url %>">
+</div>
+<% end %>
+<div class="col-md-4 profileInfo">
+<div class="col-md-12">
+<p class="courseName"><%= @course.name %></p>
+<p class="courseCon"><%= @course.description %></p>
+</div>
+</div>
+</div>
+<div class="col-md-12 profileDetail">
+<div class="col-md-8 profileLPanel">
+<div class="navbarMin">
+<ul class="clearfix">
+<li><a class="active">课时</a></li>
+<li><a>证书</a></li>
+<li><a>笔记</a></li>
+<li><a>讨论</a></li>
+<li><a>证书</a></li>
+</ul>
+</div>
+<div class="navCon col-md-12">
+<!-- 左侧框内容 -->
+
+
+</div>
+</div>
+<div class="col-md-4 profileRPanel">
+<div class="col-md-12 profileTeacher">
+<p class="title">授课老师</p>
+<% @teachers.each do |teacher| %>
+
+<div class="col-md-12 info">
+    <div class="col-md-5"><img class="headPic img-circle" src="<%= teacher['avatar_url'] %>"/></div>
+<div class="col-md-7">
+<p class="name">
+   <%= teacher['short_name'] %>
+</p>
+ 
+<p class="property">
+Web前端工程师
+</p>
+</div>
+
+</div>
+<% end %>
+</div>
+<div class="col-md-12 profileComments">
+<p class="title">我要评价:<input id="makeStars" type="number" ></p>
+<p>
+</p>
+<p class="inputComm"><textarea></textarea><a class="button button-large button-flat-flame">提交</a></p>
+<p class="title">
+最新评价
+</p>
+<div class="commList">
+<ul>
+<li class="clearfix">
+<div class="col-md-2 headPic "><img class="img-circle" src="/bundles/renaissanceweb/img/commHead.jpg"></div>
+<div class="col-md-8 detail">
+<p>
+<span class="name">田馥甄</span>
+<span class="stars">
+<i class="fa fa-star"></i>
+</span>
+</p>
+<p class="content">Tim老师讲的非常不错</p>
+</div>
+<div class="col-md-2 time">2小时前</div>
+</li>
+<li class="clearfix">
+<div class="col-md-2 headPic "><img class="img-circle" src="/bundles/renaissanceweb/img/commHead.jpg"></div>
+<div class="col-md-8 detail">
+<p>
+<span class="name">王尧山</span>
+<span class="stars">
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+</span>
+</p>
+<p class="content">非常不错</p>
+</div>
+<div class="col-md-2 time">12小时前</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- 相关课程 -->
+<div class="col-md-10 col-md-offset-1 courseRec whiteRec">
+<div class="col-md-12" style="font-size:2.5rem;padding-bottom:10px;">
+相关课程
+</div>
+<div class="col-md-3 courseRecCard">
+<div class="view viewForCard">
+<img src="/bundles/renaissanceweb/img/相关课程jQuery.png">
+<div class="mask">
+<h2>jQuery</h2>
+<p>Jquery是继prototype之后又一个优秀的Javascript框架。它是轻量级的js库 ，它兼容CSS3，还兼容各种浏览器.jQuery使用户能更方便地处理HTML</p>
+<a href="#" class="info"><i class="fa fa-hand-o-right"></i></a>
+</div>
+<div class="info"><p class="title">jQuery设计</p><p class="members"><i class="fa fa-user"></i> 30人</p></div>
+</div>
+</div>
+<div class="col-md-3 courseRecCard">
+<div class="view viewForCard">
+<img src="/bundles/renaissanceweb/img/相关课程jQuery.png">
+<div class="mask">
+<h2>jQuery</h2>
+<p>Jquery是继prototype之后又一个优秀的Javascript框架。它是轻量级的js库 ，它兼容CSS3，还兼容各种浏览器.jQuery使用户能更方便地处理HTML</p>
+<a href="#" class="info"><i class="fa fa-hand-o-right"></i></a>
+</div>
+<div class="info"><p class="title">jQuery设计</p><p class="members"><i class="fa fa-user"></i> 30人</p></div>
+</div>
+</div>
+<div class="col-md-3 courseRecCard">
+<div class="view viewForCard">
+<img src="/bundles/renaissanceweb/img/相关课程jQuery.png">
+<div class="mask">
+<h2>jQuery</h2>
+<p>Jquery是继prototype之后又一个优秀的Javascript框架。它是轻量级的js库 ，它兼容CSS3，还兼容各种浏览器.jQuery使用户能更方便地处理HTML</p>
+<a href="#" class="info"><i class="fa fa-hand-o-right"></i></a>
+</div>
+<div class="info"><p class="title">jQuery设计</p><p class="members"><i class="fa fa-user"></i> 30人</p></div>
+</div>
+</div>
+<div class="col-md-3 courseRecCard">
+<div class="view viewForCard">
+<img src="/bundles/renaissanceweb/img/相关课程jQuery.png">
+<div class="mask">
+<h2>jQuery</h2>
+<p>Jquery是继prototype之后又一个优秀的Javascript框架。它是轻量级的js库 ，它兼容CSS3，还兼容各种浏览器.jQuery使用户能更方便地处理HTML</p>
+<a href="#" class="info"><i class="fa fa-hand-o-right"></i></a>
+</div>
+<div class="info"><p class="title">jQuery设计</p><p class="members"><i class="fa fa-user"></i> 30人</p></div>
+</div>
+</div>
+</div>
+<div class="col-md-1 rightControls">
+<ul>
+<li class="">
+<a><i class="fa fa-user" title="进入个人中心"></i></a>
+</li>
+<li class="">
+<a><i class="fa fa-qrcode" title="扫描二维码"></i></a>
+</li>
+<!-- 返回顶部 -->
+<li class="toTop">
+<a><i class="fa fa-angle-up" title="返回顶部"></i></a>
+</li>
+</ul>
+</div>
+</div>
+
+<script src="/bundles/renaissanceweb/js/star-rating.min.js "></script>
+<script src="/bundles/renaissanceweb/js/courseIntro.js"></script>
+

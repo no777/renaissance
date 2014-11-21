@@ -53,4 +53,6 @@ Rails.application.configure do
   config.logger = Logger.new(STDOUT)  
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  config.assets.precompile += %w( video-js.swf vjs.eot vjs.svg vjs.ttf vjs.woff )
+
 end

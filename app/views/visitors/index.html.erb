@@ -1,2 +1,242 @@
-<h3>Welcome</h3>
-<p><%= link_to 'Users:', users_path %> <%= User.count %> registered</p>
+
+
+<div class="fullHeight1">
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top: 6%;">
+  <div class="modal-dialog">
+	<div class="modal-content">
+	  <div class="modal-header" style="background-image: url(/bundles/renaissanceweb/img/2nd/navi_bg.png);padding:0px;border-bottom:1px solid #3F1414;">
+		<button type="button" class="close" style="margin: 15px;" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+		<img src="/bundles/renaissanceweb/img/2nd/navi_logo.png" height="50px">
+	  </div>
+	  <div class="modal-body" style="text-align:center;padding:0px;height:400px;">
+		<embed src="http://player.youku.com/player.php/sid/XNzQ2Mzg1NjU2/v.swf" allowfullscreen="true" quality="high" allowscriptaccess="always" type="application/x-shockwave-flash" wmmode="" wmode="transparent" align="middle" height="100%" width="100%">
+	  </div>
+	  <div class="modal-footer hide">
+		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		<button type="button" class="btn btn-primary">Save changes</button>
+	  </div>
+	</div>
+  </div>
+</div>
+<!-- intro区域 -->
+<div id="introRect" class="row bigRect" style="background-color:#ff8264;min-height:520px;">
+	<div style="width:100%;height:100%;position:absolute;left:0px;top:0px;z-index:0;">
+		<img src="/bundles/renaissanceweb/img/2nd/intro_bg.png" style="width:100%;height:100%;">
+		<div style="position: absolute;top: 0;left: 0px;" class="">
+			<img src="/bundles/renaissanceweb/img/2nd/intro_logo.png">
+		</div>
+	</div>
+	<div id="formpanel" style="text-align:center;padding-top:3%;" class="col-xs-4 col-xs-offset-7">
+		<!-- 登陆前文字 -->
+		<div id="introVideo">
+			<img src="/bundles/renaissanceweb/img/2nd/intro_title.png" style="">
+			<p style="color: #FFFFFF;font-size: 260%;margin-top: 10%;margin-bottom: 10%;margin-right: 10%;text-align: right;">泛IT学科大讲堂</p>
+			<p style="color: #FFFFFF;font-size: 180%;margin-top: 10%;margin-bottom: 10%;margin-right: 10%;text-align: right;"><a href="javascript:void(0);" onclick="showVideo();">了解更多 <img src="/bundles/renaissanceweb/img/2nd/intro_direct.png" style="width: 30px;margin-bottom: 5px;"></a></p>
+		</div>
+		<!-- 登录表单 -->
+		<div>
+			<form class="regLog">
+				<div class="row" style="">
+					<div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+						<div class="pull-left" id="formTitle"></div>
+						<div class="pull-right" id="formAction" style="margin-right: 5px;cursor:pointer;"></div>
+					</div>
+				</div>
+				<div class="row">
+					<input type="hidden" name="action" value="0">
+					<input type="text" placeholder="邮箱">
+					<input type="password" placeholder="密码">
+				</div>
+				<div class="row" id="formCheckBox" style="text-align: left;">
+					<div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+						<input type="checkbox" style="width: 20px;margin-top: 15px;"><label style="font-size: 15px;font-weight: 200;">自动登录</label>
+					</div>
+				</div>
+				<div class="row">
+					<button id="doAction" class="button button-flat-primary"></button>
+				</div>
+				<div class="row" style="padding-top: 2%;">
+					<p>合作账号登录&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><img src="/bundles/renaissanceweb/img/2nd/sinaLogo.png"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><img src="/bundles/renaissanceweb/img/2nd/tencentLogo.png"></a></p>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<!-- 四步引导 -->
+<div id="guideRect" class="row bigRect" style="background-color:black;">
+	<div class="col-xs-3" style="height:100%;background-color:#84c0d1;">
+		<div style="position:absolute;left:0px;bottom:0px;z-index:0;overflow:hidden;">
+			<img src="/bundles/renaissanceweb/img/2nd/guide_1.png">
+		</div>
+		<div style="position:absolute;right:0px;top:0px;z-index:0;overflow:hidden;">
+			<p>选择课程</p>
+		</div>
+	</div>
+	<div class="col-xs-3" style="height:100%;background-color:#979a29;">
+		<div style="position:absolute;left:0px;top:0px;z-index:0;overflow:hidden;">
+			<img src="/bundles/renaissanceweb/img/2nd/guide_2.png">
+		</div>
+		<div style="position:absolute;right:0px;bottom:0px;z-index:0;overflow:hidden;">
+			<p>开始上课</p>
+		</div>
+	</div>
+	<div class="col-xs-3" style="height:100%;background-color:#84c0d1;">
+		<div style="position:absolute;right:0px;bottom:0px;z-index:0;">
+			<img src="/bundles/renaissanceweb/img/2nd/guide_3.png">
+		</div>
+		<div style="position:absolute;left:0px;top:0px;z-index:0;overflow:hidden;">
+			<p>通过考试</p>
+		</div>
+	</div>
+	<div class="col-xs-3" style="height:100%;background-color:#979a29;">
+		<div style="position:absolute;right:0px;top:0px;z-index:0;">
+			<img src="/bundles/renaissanceweb/img/2nd/guide_4.png">
+		</div>
+		<div style="position:absolute;left:0px;bottom:0px;z-index:0;overflow:hidden;">
+			<p>获得证书</p>
+		</div>
+	</div>
+</div>
+<!-- 学什么 课程引导 -->
+<div id="courseRect" class="row bigRect " style="background-color: rgba(236, 185, 41, 1);">
+	<p style="text-align: center;color: #ffffff;font-size: 550%;font-weight: bold;margin: 3%;">学什么？</p>
+	<div class="col-xs-10 col-xs-offset-1" style=" margin-bottom: 5%;">
+		<div class="row">
+			<div class="col-xs-3" style="text-align:center;">
+				<p><img src="/bundles/renaissanceweb/img/2nd/course-1.png" style="width: 100%;"></p>
+				<p style="background-color: #e97463;font-size: 200%;color: #ffffff;padding: 0px 5px 5px 5px;">Python</p>
+				<p style="background-color: #e97463;font-size: 200%;color: #ffffff;padding: 0px 5px 5px 5px;">C++</p>
+				<p style="background-color: #e97463;font-size: 200%;color: #ffffff;padding: 0px 5px 5px 5px;">· · ·</p>
+			</div>
+			<div class="col-xs-3" style="text-align:center;">
+				<p><img src="/bundles/renaissanceweb/img/2nd/course-2.png" style="width: 100%;"></p>
+				<p style="background-color: #7997cd;font-size: 200%;color: #ffffff;padding: 0px 5px 5px 5px;">PS</p>
+				<p style="background-color: #7997cd;font-size: 200%;color: #ffffff;padding: 0px 5px 5px 5px;">交互设计</p>
+				<p style="background-color: #7997cd;font-size: 200%;color: #ffffff;padding: 0px 5px 5px 5px;">· · ·</p>
+			</div>
+			<div class="col-xs-3" style="text-align:center;">
+				<p><img src="/bundles/renaissanceweb/img/2nd/course-3.png" style="width: 100%;"></p>
+				<p style="background-color: #e97463;font-size: 200%;color: #ffffff;padding: 0px 5px 5px 5px;">微博营销</p>
+				<p style="background-color: #e97463;font-size: 200%;color: #ffffff;padding: 0px 5px 5px 5px;">市场分析</p>
+				<p style="background-color: #e97463;font-size: 200%;color: #ffffff;padding: 0px 5px 5px 5px;">· · ·</p>
+			</div>
+			<div class="col-xs-3" style="text-align:center;">
+				<p><img src="/bundles/renaissanceweb/img/2nd/course-4.png" style="width: 100%;"></p>
+				<p style="background-color: #7997cd;font-size: 200%;color: #ffffff;padding: 0px 5px 5px 5px;">大数据分析</p>
+				<p style="background-color: #7997cd;font-size: 200%;color: #ffffff;padding: 0px 5px 5px 5px;">云计算</p>
+				<p style="background-color: #7997cd;font-size: 200%;color: #ffffff;padding: 0px 5px 5px 5px;">· · ·</p>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 六边形课程展示 -->
+<div id="courseTitleRect" class="row bigRect" style="background-image: url(/bundles/renaissanceweb/img/2nd/hexagon_shadow.png); background-size: 91.7%;">
+	    
+	    <div class="row" style="margin-bottom:-4%;">
+                         <img id="imgOne"  class="sexangleImg" src="/bundles/renaissanceweb/img/frontpage/sexangle1.png" before="<%= '/bundles/renaissanceweb/img/frontpage/sexangle1.png' %>" after="/bundles/renaissanceweb/img/frontpage/sexangle4after.png">
+                         <img id="imgTwo" class="sexangleImg"  src="/bundles/renaissanceweb/img/frontpage/sexangle2.png "  before="/bundles/renaissanceweb/img/frontpage/sexangle2.png "  after="/bundles/renaissanceweb/img/frontpage/sexangle4after.png">
+                         <img id="imgThree" class="sexangleImg"  src="/bundles/renaissanceweb/img/frontpage/sexangle3.png " before="/bundles/renaissanceweb/img/frontpage/sexangle3.png " after="/bundles/renaissanceweb/img/frontpage/sexangle4after.png">
+                    </div>
+                    <div class="row">
+                         <img id="imgFour" class="sexangleImg"  src="/bundles/renaissanceweb/img/frontpage/sexangle4.png"  before="/bundles/renaissanceweb/img/frontpage/sexangle4.png" after="/bundles/renaissanceweb/img/frontpage/sexangle4after.png">
+                         <img id="imgFive" class="sexangleImg"  src="/bundles/renaissanceweb/img/frontpage/sexangle5.png" before="/bundles/renaissanceweb/img/frontpage/sexangle5.png" after="/bundles/renaissanceweb/img/frontpage/sexangle4after.png">
+                         <img id="imgSix" class="sexangleImg"  src="/bundles/renaissanceweb/img/frontpage/sexangle6.png"  before="/bundles/renaissanceweb/img/frontpage/sexangle6.png" after="/bundles/renaissanceweb/img/frontpage/sexangle4after.png">
+                         <img id="imgSeven" class="sexangleImg"  src="/bundles/renaissanceweb/img/frontpage/sexangle7.png" before="/bundles/renaissanceweb/img/frontpage/sexangle7.png" after="/bundles/renaissanceweb/img/frontpage/sexangle4after.png">
+                    </div>
+		
+	</div>
+<!-- 我们的优势 -->
+<div id="advRect" class="row bigRect" style="background-color:#84c0d1;">
+	<div class="col-xs-12">
+		<div class="row">
+			<div class="col-xs-4 col-xs-offset-2" style="text-align:center;">
+				<p><img src="/bundles/renaissanceweb/img/2nd/adv_icon1.png"></p>
+				<p class="title">云端课程随处听</p>
+				<p class="content">领先的云主机和云视频服务。<br>具有更安全、更快速、更低成本等优势。</p>
+			</div>
+			<div class="col-xs-4" style="text-align:center;">
+				<p><img src="/bundles/renaissanceweb/img/2nd/adv_icon2.png"></p>
+				<p class="title">实时交互好体验</p>
+				<p class="content">参加考试、参与讨论。<br>参与直播、答疑解惑。</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-4 col-xs-offset-2" style="text-align:center;">
+				<p><img src="/bundles/renaissanceweb/img/2nd/adv_icon3.png"></p>
+				<p class="title">前沿技术抢先学</p>
+				<p class="content">不论云计算、大数据、物联网等前沿科技还是<br>办公软件、编程语言等基础技能，我们应有尽有。</p>
+			</div>
+			<div class="col-xs-4" style="text-align:center;">
+				<p><img src="/bundles/renaissanceweb/img/2nd/adv_icon4.png"></p>
+				<p class="title">云端课程随处听</p>
+				<p class="content">领先的云主机和云视频服务。<br>具有更安全、更快速、更低成本等优势。</p>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 加入我们 -->
+<div id="regRect" class="row bigRect">
+	<div class="col-xs-4 col-xs-offset-2" style="height:100%;">
+		<img src="/bundles/renaissanceweb/img/2nd/reg_bg.png" style="margin-top:10%;margin-bottom:10%;">
+	</div>
+	<div class="col-xs-5 col-xs-offset-1" style="height:100%;">
+		<p class="content" style="text-align:left;">我们在这里</p>
+		<p class="content" style="text-align:center;">你在哪里？</p>
+		<p style="text-align:center;margin:20% 0 20% 0;"><button href="javascript:void(0);" id="regBtn" class="button button-pill button-flat-caution button-large" style="width: 55%;font-size: 3rem;font-weight: bold;background-color: #de2e39;">加入我们</button></p>
+	</div>
+</div>
+</div>
+
+<!-- self-defined js  -->
+<script type="text/javascript">
+var iden=null;//lcx-debug
+
+$(function(){
+	/*
+	//************************init
+	//$("#regRect").css("padding-top",$("#regRect").height()*2/5+"px");
+	//************
+	$("#formAction").mouseover(function(){
+		$(this).animate({
+			marginRight:'0px',
+		},'normal');
+	});
+	$("#formAction").mouseleave(function(){
+		$(this).animate({
+			marginRight:'5px',
+		},'normal');
+	});*/
+	//************************
+	$("#regBtn").click(function(){
+		$("html,body").animate({
+			scrollTop:$("#bodyWrapper").offset().top
+		},500,function(){
+			$("#formul").animate({
+				paddingTop:"35"
+			},100,function(){
+			$("#formul").animate({
+				paddingTop:"40"
+			},100,function(){
+			$("#formul").animate({
+				paddingTop:"35"
+			},100,function(){
+			$("#formul").animate({
+				paddingTop:"40"
+			},100);
+			});
+			});
+			});
+		});
+	});
+});
+function showVideo(){
+	//alert("a");
+	$('#myModal').modal('toggle');
+}
+</script>
+<script src="/bundles/renaissanceweb/js/showCourse.js"></script>
+<!-- <script src="/bundles/renaissanceweb/js/showCourseContent.js"></script>-->
+<script src="/bundles/renaissanceweb/js/detectScroll.js"></script>
+<!-- <script src="/bundles/renaissanceweb/js/formPanel.js"></script>-->
+

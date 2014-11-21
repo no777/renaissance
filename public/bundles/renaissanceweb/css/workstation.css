@@ -1,0 +1,458 @@
+/***********************************Workstation********************************************/
+.leftControls{
+	position: fixed;
+	left: 0px;
+	top:0px;
+	bottom:;
+	width:8%;
+}
+
+.leftControls ul{
+	list-style: none;
+	width: 100%;
+	top: 150px;
+	padding: 1%;
+	position: absolute;
+	z-index: 5000;
+}
+
+/*.leftControls ul > li {
+	margin-bottom: 20px;
+	width:80%;
+}*/
+
+.leftControls ul > li{
+	display: block;
+	max-height: 5em;
+	padding:1em;
+	text-align: center;
+	margin-bottom: 50px;
+	color:#b01e00;
+	width: 90%;
+	margin-left: 5%;
+	overflow: hidden;
+	
+}
+.leftControls ul > li >a{
+	display: block;
+	width: 100%;
+	font-size: 3em;
+	color:inherit;
+}
+
+.leftControls ul > li >a:nth-child(2){
+	font-size: 2em;
+	margin-top: 200px;
+}
+
+.leftControls ul > li:hover{
+	text-decoration: none;
+	cursor:pointer;
+	background-color: #ffffff;
+}
+
+.leftControls ul > li >span{
+	font-size: 2rem;
+	color:#b01e00;
+	opacity: 0;
+}
+
+.workstationPanel{
+	min-height: 1000px;
+	font-size: 1rem;
+	color:#b01e00;
+	margin-bottom: 80px;
+	position: relative;
+	width: 100%;
+	margin-top: 40px;
+}
+
+.continueLearning{
+	background-color: #ffffff;
+	padding: 0;
+	position: relative;
+	box-shadow: 2px 2px 2px #ccc;
+	border: none;
+}
+
+.continueLearning .cLImg{
+	width:70%;
+	float: left;
+
+}
+
+.continueLearning .cLImg img{
+	width: 100%;
+}
+
+.continueLearning .cLInfo{
+	width: 30%;
+	padding:1%;
+	padding-top:5%;
+	padding-bottom: 0; 
+	float: left;
+	position: relative;
+}
+
+.continueLearning .cLInfo p{
+	text-align: center;
+	margin-bottom: 10%;
+}
+
+.continueLearning .cLInfo p:nth-child(1){
+	font-size: 4em;
+}
+
+.continueLearning .cLInfo p:nth-child(2){
+	font-size:2em;
+	font-weight: 700; 
+	margin-bottom: 5%;
+}
+
+.continueLearning .cLInfo p:nth-child(3){
+	font-size:2em;
+}
+
+.continueLearning div.continueButton{
+	position: absolute;
+	width: 30%;
+	top:70%;
+	right: 0;
+	text-align: center;
+}
+
+.continueLearning div.continueButton a{
+	font-size: 4em;
+}
+
+.workstationPanel .panelTitle{
+	position: absolute;
+	font-size: 5em;
+	top:0;
+	left: 0;
+	padding:1%;
+	padding-left: 4%;
+	color:white;
+	width: 70%;
+	z-index: 1000;
+}
+
+.continueLearning div.continueCTitle{
+	position: absolute;
+	font-size: 4em;
+	bottom:0;
+	left: 0;
+	padding: 3%;
+	width:70%;
+	background-color: rgba(255, 255, 255, 0.6);
+}
+
+.continueLearning div.progressBar{
+	width:40%;
+	height: 0.8em;
+	background-color:#b01e00; 
+	position: absolute;
+	left: 0;
+	bottom:0;
+}
+
+.button-flat-flame{
+	background: #b01e00;
+	border-radius: 5px;
+	border: none;
+	border-bottom: 3px solid #761703;
+	color: #ffffff;
+	width: 80%;
+	box-shadow: none;
+	padding: 2%;
+	height: auto;
+}
+
+.button-flat-flame:hover{
+	color:#ffffff;
+	background: rgb(231, 43, 4);
+}
+/*猜你喜欢面板*/
+.whatULike{
+	margin-top:2%;
+	padding: 0;
+	box-shadow: 2px 2px 2px #ccc;
+	position: relative;
+}
+
+.whatULike  .carousel-inner > .item > img, .carousel-inner > .item > a > img{
+	width: 100%;
+	border: none;
+}
+
+.whatULike .carousel-caption{
+	background-color: rgba(255,255,255,0.6);
+	min-height: 8em;
+	position:absolute;
+	width: 100%;
+	bottom:0;
+	left: 0;
+	padding: 0;
+	color: #656464;
+	text-shadow: none;
+	overflow: hidden;
+	text-overflow:ellipsis; 
+
+}
+
+.whatULike .carousel-caption .wULCTitle{
+	width: 20%;
+	font-size: 5em;
+	padding-top: 2%;
+	float: left;
+}
+
+.whatULike .carousel-caption .wULCIntro{
+	width: 80%;
+	font-size: 2em;
+	padding: 1em;
+	float: left;
+}
+
+.whatULike .carousel-control {
+	background: none;
+	opacity: 0.7;
+	font-size: 2em;
+	text-shadow:none;
+}
+
+.whatULike .carousel-control:hover{
+	opacity: 1;
+}
+.liveOther{
+	margin-top:2%;
+	padding-left:0px;
+	padding-bottom: 0px;
+	min-height:400px;
+	background-color: #ffffff;
+	margin-bottom:2%;
+	box-shadow: 2px 2px 2px #ccc;
+
+}
+/**********************************时间轴**************************************/
+.timeLine{
+	list-style: none;
+	width: 100%;
+	padding-top:10px;
+	padding-bottom: 40px;
+}
+
+/* The line */
+.timeLine:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 5px;
+	background: #ccc;
+	left: 20%;
+	margin-left: -10px;
+}
+
+.timeLine > li{
+	position: relative;
+}
+
+.timeLine > li .tmtime{
+	font-size: 3em;
+	display: block;
+	width: 25%;
+	position: absolute;
+}
+
+/* Right content */
+.timeLine > li .tmlabel {
+	margin: 0 0 15px 25%;
+	font-size: 3em;
+	font-weight: 300;
+	line-height: 1.4;
+	position: relative;
+}
+
+/* The icons */
+.timeLine > li .tmicon {
+    width: 25px;
+    height: 25px;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 40px;
+    -webkit-font-smoothing: antialiased;
+    position: absolute;
+    color: #fff;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px #ccc;
+    text-align: center;
+    left: 20%;
+    top: 0;
+    margin: 5px 0 0 -52px;
+}
+
+
+
+/*直播轴*/
+.liveLine{
+	border-right: 2px dashed #656464;
+	border-left:0.5em solid #b01e00; 
+	padding: 0;
+	font-size: 1em;
+}
+
+
+
+
+
+.liveLine .panelTitle{
+	color:rgb(190, 187, 187);
+	margin-left: 20px;
+}
+
+.liveLine > .liveItem{
+	padding: 2%;
+	position: relative;
+	display: block;
+	float: left;
+	margin-bottom: 15%;
+}
+.liveLine > .liveItem:nth-child(2){
+	margin-top: 25%;
+}
+
+.liveLine > .liveItem .liveTitle{
+	background-color: rgb(238, 238, 238);
+	color:#656464;
+	padding: 10px;
+	font-size: 2.5em;
+	border-radius: 5px;
+	margin-left: 20px;
+}
+
+.liveLine > .liveItem.active .liveTitle{
+	background-color: #b01e00;
+	color:#ffffff;
+}
+
+/*The pot*/
+.liveLine > .liveItem .liveTitle:before{
+	content:"";
+	width:30px;
+	height: 30px;
+	background-color: #ffffff;
+	border:5px solid #b01e00;
+	border-radius: 50%;
+	position: absolute;
+	left:-20px;
+}
+
+/*The triangle*/
+.liveLine > .liveItem .liveTitle:after{
+	content: "";
+	width: 0px;
+	height: 0px;
+	border-style: solid;
+	border-width: 10px 20px 10px 0px;
+	border-color: transparent rgb(238,238,238) transparent   transparent ;
+	position: absolute;
+	left: 10px;
+	top: 50%;
+}
+
+.liveLine > .liveItem.active .liveTitle:after{
+	border-color: transparent #b01e00 transparent   transparent ;
+
+}
+
+.liveLine > .liveItem .liveTime{
+	font-size: 2em;
+	margin-left: 15px;
+	color:#656464;
+}
+.liveLine > .liveItem.active .liveTime{
+	color:#b01e00;
+	font-weight: 700;
+}
+
+.liveLine > .liveItem.active .liveTime span{
+	position: absolute;
+	right: 10px;
+}
+
+.otherPanel{
+	font-size: 1em;
+}
+
+.otherPanel .row{
+	text-align: center;
+	margin-top: 5em;
+}
+
+.otherPanel .panelTitle{
+	color:rgb(190, 187, 187);
+}
+.otherPanel  .controlBtn{
+	color:rgb(150, 150, 150);
+	display: block;
+	padding-top:1.5em; 
+	width: 5em;
+	height: 5em;
+	border: 2px solid rgb(219, 219, 219);
+	border-radius: 50%;
+	font-size: 5em;
+	-webkit-transition-property: background,color;
+	  -moz-transition-property: background,color;
+	  -o-transition-property: background,color;
+	  transition-property: background,color;
+	  -webkit-transition-duration: 0.2s;
+	  -moz-transition-duration: 0.2s;
+	  -o-transition-duration: 0.2s;
+	  transition-duration: 0.2s;
+}
+
+.otherPanel  .controlBtn:hover{
+	color:#ffffff;
+	background-color: #b01e00;
+}
+
+
+.rightControls{
+	position: fixed;
+	bottom: 400px;
+	right: 10px;
+	padding: 0;
+}
+
+.rightControls > ul{
+	list-style: none;
+}
+
+.rightControls > ul >li{
+	width: 5em;
+	height: 5em;
+	border-radius: 50%;
+	border:2px solid rgb(150,150,150);
+	text-align: center;
+	margin-top: 10px;
+	color:rgb(150,150,150);
+
+}
+
+.rightControls > ul >li:hover{
+	background-color: #ffffff;
+}
+
+.rightControls > ul >li >a{
+	font-size: 3em;	
+	color:inherit;
+}
+/*向上滚动*/
+.toTop{
+	display: none;
+}

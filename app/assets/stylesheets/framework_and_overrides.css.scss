@@ -3,7 +3,7 @@
 @import "bootstrap";
 
 // make all images responsive by default
-img {
+img1 {
   @extend .img-responsive;
   margin: 0 auto;
   }
@@ -33,14 +33,14 @@ img {
   }
 // apply styles to HTML elements
 // to make views framework-neutral
-main {
+main1 {
   @extend .container;
   background-color: #eee;
   padding-bottom: 80px;
   width: 100%;
   margin-top: 51px; // accommodate the navbar
   }
-section {
+section1 {
   @extend .row;
   margin-top: 20px;
   }

@@ -8,7 +8,7 @@ class CoursesController < ApplicationController
 
   def tag_cloud
     @tags = Course.tag_counts_on(:tags)
-    logger.debug @tags
+    # logger.debug @tags
   end
 
   def tag
@@ -27,8 +27,51 @@ class CoursesController < ApplicationController
 
   def show
     @tags = @course.tag_counts_on(:tags)
- 
-    respond_with(@course)
+    id = params[:id]
+    # url  = format "courses/%d/users?enrollment_type=teacher", @course.canvas_id
+    url  = format "courses/%d/users", @course.canvas_id
+    # logger.debug "url: #{url}" 
+    
+    @teachers = Canvas.client.get url ,enrollment_type: 'teacher'
+    @students = Canvas.client.get url ,enrollment_type: 'student'
+
+    @joined = false;
+    logger.debug @students
+    @students.each do |student|
+      url = format "users/%d/profile" ,student['id']
+      logger.debug "url: #{url}" 
+      @profile= Canvas.client.get url 
+      logger.debug current_user.username + @profile['login_id']
+      if current_user.username ===  @profile['login_id']
+        # if current_user.canvas_user_id ==0
+        #   @user = User.find(current_user.id)
+        #   @user.canvas_user_id = student['id']
+        #   @user.save()
+        # end
+        logger.debug @profile
+        @joined = true
+      end  
+    end
+
+    
+    @teachers.each do |teacher|
+      url = format "users/%d/profile" ,teacher['id']
+      @profile= Canvas.client.get url 
+      # logger.debug @profile
+      teacher['avatar_url'] = @profile['avatar_url'];
+      # if current_user.canvas_user_id ===nil
+      #   if current_user.username ===  @profile['login_id']
+      #     @user = User.find(current_user.id)
+      #     @user.canvas_user_id = student['id']
+      #     @user.save()
+      #   end            
+      # end
+    end
+
+    # logger.debug "teachers: #{@teachers}" 
+    
+        
+    respond_with(@course,@techers,@students,@joined)
   end
 
   def new
@@ -37,6 +80,9 @@ class CoursesController < ApplicationController
   end
 
   def edit
+
+    # @videos = Video.all
+    
   end
 
   def create
@@ -88,12 +134,13 @@ class CoursesController < ApplicationController
 
 
 
-  def enroll_course
-    id = params[:id]
-    @course = Course.find(params[:id])
+  def enroll
+    # id = params[:id]
+    # @course = Course.find(params[:id])
+    @course = Course.find(params[:course_id])
     url  = format "courses/%d/enrollments", @course.canvas_id
     logger.debug "url" +url
-    user_id = 3
+    user_id = current_user.canvas_user_id
     preload = { user_id: user_id ,
                 type: 'StudentEnrollment',
                 enrollment_state: 'active',

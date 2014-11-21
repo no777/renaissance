@@ -1,14 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? yield(:title) : "Renaissance" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Renaissance" %>">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+    <script src="/bundles/renaissanceweb/js/jquery-1.11.1.min.js"></script>
+<script src="/bundles/renaissanceweb/js/jquery.transit.js"></script>
+<script src="/bundles/renaissanceweb/lib/bootstrap/js/bootstrap.js"></script>
+<script src="/bundles/renaissanceweb/js/base.js"></script>
+
+<link href="/bundles/renaissanceweb/lib/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet"></link>
+
+<link href="/bundles/renaissanceweb/lib/font-awesome-4.1.0/css/font-awesome.min.css" type="text/css" rel="stylesheet"></link>
+
+    <link href="/bundles/renaissanceweb/css/1.0/frontpage.css" rel="stylesheet" type="text/css">
+    <link href="/bundles/renaissanceweb/css/buttons.css" rel="stylesheet" type="text/css">
+
     <%= csrf_meta_tags %>
   </head>
   <body>
+    <div id="bodyWrapper">
     <header>
       <%= render 'layouts/navigation' %>
     </header>
@@ -16,5 +30,6 @@
        <%= render 'layouts/messages' %>
        <%= yield %>
     </main>
+  </div>
   </body>
 </html>

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @video.name %>
+</p>
+
+<p>
+  <strong>Course:</strong>
+  <%= @video.course_id %>
+</p>
+
+
+<p>
+  <strong>Description:</strong>
+  <%= @video.description %>
+</p>
+
+<p>
+  <strong>Create at:</strong>
+  <%= @video.create_at %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @video.duration %>
+</p>
+
+<p>
+  <strong>Format:</strong>
+  <%= @video.format %>
+</p>
+
+<%= videojs_rails sources: { mp4: "#{@video.url}"}, width:"800" do %>
+    Please enable <b>JavaScript</b> to see this content.
+<%- end %>
+
+<%= link_to 'Edit', edit_video_path(@video) %> |
+<%= link_to 'Back', videos_path %>

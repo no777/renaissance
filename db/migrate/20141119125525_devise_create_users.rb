@@ -33,6 +33,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
       t.timestamps
       t.string :username, :null => false
+      t.integer  :canvas_user_id, default: 0, null: false
+
     end
 
     # add_index :users, :email,                unique: true
